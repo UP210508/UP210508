@@ -1,3 +1,5 @@
+
+
 <h1> Materia de Programación </h1>
 
 <p><em>Universidad Politécnica de Aguascalientes</em></p>
@@ -8,19 +10,30 @@
 <br />
 
 <h2>Información general</h2>
-
 <br />
 
 <ul>
-      <li>Alumno: Danna Janeth Sanchez Carreón</li>
-      <li>Matrícula: UP210508</li>
-      <li>Docente: Luis Ernesto Anaya Tiscareño</li>
-      <li>Grupo: ISC03B</li>
+<li>Alumno: Danna Janeth Sanchez Carreón</li>
+<li>Matrícula: UP210508</li>
+<li>Docente: Luis Ernesto Anaya Tiscareño</li>
+<li>Grupo: ISC03B</li>
 </ul>
+<br />
+
+<h2>README por unidad</h2>
+<br />
+
+<ol>
+<li><a href="https://github.com/UP210508/UP210508_cpp/blob/main/U1/README.md">Unidad 1 &mdash; Programming Introduction</a></li>
+<li><a href="https://github.com/UP210508/UP210508_cpp/blob/main/U2/README.md">Unidad 2 &mdash; Control Structures and cycles</a></li>
+<li><a href="https://github.com/UP210508/UP210508_cpp/tree/main/U3">Unidad 3 &mdash; Functions</a></li>
+<li><a href="https://github.com/UP210508/UP210508_cpp/blob/main/U4/README.md">Unidad 4 &mdash; Files and arrays</a></li>
+</ol>
 <br />
 
 <h2>Sobre mí</h2>
 <br />
+
 <p>¡Hola mundo! Mi nombre es <strong>Danna Carreón</strong>. Soy neófita en el mundo de la programación. Sin embargo, tengo la disposición por aprender cosas nuevas y estoy consciente de lo duro que es aprender un lenguaje de programación por primera vez, es por ello que quiero ir compartiendo con ustedes lo poco o mucho que vaya aprendiendo con esta magnífica tecnología como lo es C++. </p>
 <br />
 
@@ -31,5 +44,4 @@
 <br />
 
 <img src="./images/myPhoto.jpeg" alt="My photo" width="600px"/>
-
-
+<br />
