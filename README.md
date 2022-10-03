@@ -1,4 +1,4 @@
-h1> Materia de Programación </h1>
+<h1> Materia de Programación </h1>
 
 <p><em>Universidad Politécnica de Aguascalientes</em></p>
 <p><em>Ingeniería en Sistemas Computacionales</em></p>
