@@ -1,4 +1,4 @@
-//PROBLEMA 2 --- TIPO IMPOSITORIO DE RENTA
+//PROBLEMA 2 --- TIPO IMPOSITORIO DE RENTAs
 #include <iostream>;
 
 using namespace std;
