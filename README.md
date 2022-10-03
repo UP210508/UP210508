@@ -8,7 +8,7 @@
 <br />
 
 <h2>Información general</h2>
-<hr />
+
 <br />
 
 <ul>
@@ -20,7 +20,6 @@
 <br />
 
 <h2>Sobre mí</h2>
-<hr />
 <br />
 <p>¡Hola mundo! Mi nombre es <strong>Danna Carreón</strong>. Soy neófita en el mundo de la programación. Sin embargo, tengo la disposición por aprender cosas nuevas y estoy consciente de lo duro que es aprender un lenguaje de programación por primera vez, es por ello que quiero ir compartiendo con ustedes lo poco o mucho que vaya aprendiendo con esta magnífica tecnología como lo es C++. </p>
 <br />
