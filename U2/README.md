@@ -33,6 +33,7 @@
 <li><a href="#products">Exercise &mdash; Productos.cpp</a></li>
 <li><a href="#binToDec">Exercise &mdash; BinToDec.cpp</a></li>
 <li><a href="#table">Exercise &mdash; TablaMulti.cpp</a></li>
+<li><a href="#biseccion">Exercise &mdash; Bifurcacion.cpp</a></li>
 </ol>
 </section>
 
@@ -1040,6 +1041,207 @@ for ( int i = 1; i <= limit; i++ ) {
 <br>
 
 </section>
+
+<section id="biseccion">
+<h2>Exercise 9 &mdash; Biseccion.cpp</h2>
+<br>
+
+<a href="#">Return</a>
+
+<p>The bisection method is a root search algorithm that works by dividing the interval in half and selecting the subinterval that the root has. This is accomplished through several interactions that are applied in an interval to find the root of the function.</p>
+<p>This programm applies this method to the equation: x<sup>2</sup>-x-12 to find its solutions.</p>
+<br>
+
+<h3>C++ Preprocessor directives</h3>
+
+```
+#include <stdio.h>
+#include <iostream>
+#include <cmath>
+#include <windows.h> 
+```
+<br>
+
+<h3>Function Prototypes</h3>
+
+```
+double evaluateFunction( double ); 
+void printLine ( void );
+```
+<br>
+
+<h3>Variable declarations</h3>
+
+```
+system("cls");
+double xi, fxi, xs, fxs, xm, fxm, root;
+double approx = 0.0001;
+bool hasRoot = false;
+int counter = 1;
+```
+<br>
+
+
+<h3>Function to evaluate the equation.</h3>
+
+```
+double evaluateFunction( double x ) {
+	return pow( x, 2) - x - 12;
+}
+```
+<br>
+
+<h3>Function to print a line of dash of the table</h3>
+
+```
+void printLine () {
+	for (int i = 1; i <= 151; i++ ) {
+		if( i == 1 || i == 151 ){
+			cout<<"x";	
+		} else {
+			cout<<"-";	
+		}
+	}
+	
+	cout<<"\n";
+}
+```
+<br>
+
+<h3>Input user</h3>
+
+```
+cout<<"Ingrese valor de xi: ";
+cin >> xi; 
+		
+cout<<"Ingrese valor de xs: ";
+cin >> xs; 
+```
+<br>
+
+<h3>Show head table</h3>
+
+```
+cout<<"\n";
+printLine();
+printf("|");
+printf("%15s", "Iteracion");
+printf("%7s", "|");
+printf("%10s", "xi");
+printf("%9s", "|");
+printf("%10s", "xs");
+printf("%9s", "|");
+printf("%10s", "xm");
+printf("%9s", "|");
+printf("%13s", "f(xi)");
+printf("%9s", "|");
+printf("%13s", "f(xm)");
+printf("%9s", "|");
+printf("%18s", "f(xi)f(xm)");	
+printf("%9s", "|");
+cout<<"\n";
+printLine();
+```
+<br>
+
+<h3>Proccesing</h3>
+
+```
+fxs = evaluateFunction( xs );
+
+do {
+			
+	xm = ( xi + xs ) / 2;
+	fxi = evaluateFunction ( xi );
+	fxm = evaluateFunction ( xm );
+		
+	printf("|");
+	printf("%15d", counter);
+	printf("%7s", "|");
+	printf("%10f", xi);
+	printf("%9s", "|");
+	printf("%10f", xs);
+	printf("%9s", "|");
+	printf("\033[0;32m");
+	printf("%10f", xm);
+	printf("\033[0m");
+	printf("%9s", "|");
+	printf("%13f", fxi);
+	printf("%9s", "|");
+	printf("%13f", fxm);
+	printf("%9s", "|");
+	printf("%18f", fxi * fxm);
+	printf("%9s", "|");
+	cout<<"\n";
+	printLine();
+		
+	if ( fxi * fxs > 0 ) break;  
+		
+	if ( abs( fxi * fxm ) < approx ) {
+		hasRoot = true;
+		root = xm;
+	} else if ( fxi * fxm < 0 ) {
+		xs = xm;
+	} else {
+		xi = xm; 
+	}
+		
+	counter++;
+} while( abs( fxi * fxm ) >= approx ); 
+```
+<br>
+
+<h3>Output user</h3>
+
+```
+if ( hasRoot ) {
+	printf("\033[0;32m");
+	printf("Raiz aproximada en: %.3f", root);
+	printf("\033[0m");	
+} else {
+	printf("En este rango no esta la raiz");
+}
+```
+<br>
+
+<h3>Explanation</h3>
+<br>
+
+<ol>
+<li>The values ​​xi and xs are requested to the user.</li>
+<li>Evaluate the equation with value xs.</li>
+<li>Begin a cycle that is going to end when the product of fxi and fxm will be minor than approx value</li>
+<li>At each iteration, it calculates the value of xm, fxi and fxm</li>
+<li>If fxi * fxs > 0 so ends the iteration and it is concluded that the range is not valid.</li>
+<li>It moves xi and xs depending the value of its evaluations and a comparation with the approx value and the signe that number has until a root is found.</li>
+<li>If the value hasRoot has a true value, so show that value to the user and on the other hand show that tha range is not valid.</li>
+</ol>
+<br>
+
+<h3>Screenshots</h3>
+<br>
+
+<p>Range xi = 1 and xs = 6</p>
+<img 
+      width="800px"
+      src="../images/u2/09-biseccion/tabla-1.png" 
+      alt="Not a valid pizza"
+>
+<br>
+<br>
+
+<p>Range xi = -5 and xs = 0</p>
+<img 
+      width="800px"
+      src="../images/u2/09-biseccion/tabla-2.png" 
+      alt="Table 6"
+>
+<br>
+<br>
+
+</section>
+
+
 </main>
 
 

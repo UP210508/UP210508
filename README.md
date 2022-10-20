@@ -7,7 +7,7 @@
 <p><img src="./images/logoUpa.jpg" alt="My photo" width="200px"/></p>
 <br />
 
-<h2>My information</h2>
+<h2>General Information</h2>
 <br>
 
 <ul>
