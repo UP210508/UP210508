@@ -1,5 +1,3 @@
-// CONNECT FOUR GAME 😊
-
 #include <iostream>
 #include <windows.h>
 #include <stdlib.h>
@@ -9,21 +7,30 @@ using namespace std;
 
 // PROTOTYPES FUNCTION
 void heading_game();
+void validate_move();
+void show_board();
 
 // BOARD
 char board[7][7] = {
-      {'00', '10', '20', '30', '40', '50', '60'},
-      {'01', '11', '21', '31', '41', '51', '61'},
-      {'02', '12', '22', '32', '42', '52', '62'},
-      {'03', '13', '23', '33', '43', '53', '63'},
-      {'04', '14', '24', '34', '44', '54', '64'},
-      {'05', '15', '25', '35', '45', '55', '65'},
-      {'06', '16', '26', '36', '46', '56', '66'}
+      {'1', '2', '3', '4', '5', '6', '7'},
+      {'1', '2', '3', '4', '5', '6', '7'},
+      {'1', '2', '3', '4', '5', '6', '7'},
+      {'1', '2', '3', '4', '5', '6', '7'},
+      {'1', '2', '3', '4', '5', '6', '7'},
+      {'1', '2', '3', '4', '5', '6', '7'},
+      {'1', '2', '3', '4', '5', '6', '7'},
 	};
 
 // VARIABLES TO PLAY
 char start;
+char player1[20];
+char player2[20];
 int type_of_game;
+int turn = 1;
+char computer[] = "COMPUTADORA";
+int move = 0;
+
+bool winner = true;
 
 int main () {
 	
@@ -41,7 +48,19 @@ int main () {
 		cin>>type_of_game;	
 		
 		if ( type_of_game == 1 ) { // JUGADOR1 VS JUGADOR2
-			cout<<"Contra dos jugadores";
+			
+			cout<<"\nIngrese nombre del jugador [1]: ";
+			cin>>player1;
+					
+			cout<<"Ingrese nombre del jugador [2]: ";
+			cin>>player2;
+					
+			do {
+				
+				validate_move();	
+					
+			} while( !winner );
+			
 		} else { // JUGADOR VS COMPUTADORA
 			cout<<"Contra la computadora";
 		}
@@ -53,6 +72,84 @@ int main () {
 	}
 		
 	return 0;
+}
+
+
+void show_board() {
+	system("cls");
+	cout<<"============= TABLERO DE JUEGO =============\n"<<endl;
+	cout<<"Este es el tablero de juego para colocar tus movimientos.\n\n";
+	cout<<"ELIGE UNA COLUMNA.\n\n";
+	
+	for( int i = 0; i <= 6; i++ ) {
+		
+		if ( i == 0 ) {
+			cout<<"\t";
+			for( int k = 1; k <= 43; k++ ) {
+				if( k == 1 || k == 43 ) {
+					cout<<"*";
+				} else {
+					cout<<"-";		
+				}
+			}
+			cout<<"\n";
+		}
+		
+		
+		cout<<"\t";
+		for ( int j = 0; j <= 6; j++ ) {
+			if ( j == 0 ) {
+				cout<<"|";
+			}
+					
+			if ( board[i][j] == 'X' ) {
+				cout<<"  "<<"\033[1;32m"<<board[i][j]<<"\033[0m"<<"  |";
+			} else if ( board[i][j] == 'O' ) {
+				
+				if ( type_of_game == 1 ) {
+					cout<<"  "<<"\033[0;35m"<<board[i][j]<<"\033[0m"<<"  |";
+				} else {
+					cout<<"  "<<"\033[0;34m"<<board[i][j]<<"\033[0m"<<"  |";	
+				}
+				
+			} 
+			else {
+				cout<<"  "<<board[i][j]<<"  |";
+			}				
+		}
+				
+		cout<<"\n";
+		cout<<"\t";
+		for( int k = 1; k <= 43; k++ ) {
+			if( k == 1 || k == 43 ) {
+				cout<<"*";
+			} else {
+				cout<<"-";		
+			}
+		}
+		cout<<"\n";
+	}
+			
+	cout<<"\n";
+}
+
+void validate_move () {
+	
+	do {
+		show_board();	
+		
+		if ( turn == 1 ) {
+			cout<<"\nTurno de "<<"\033[1;32m"<<player1<<"\033[0m"<<": ";
+		} else if ( turn == 2 ) {
+			cout<<"\nTurno de "<<"\033[0;35m"<<player2<<"\033[0m"<<": ";
+		} else {
+			cout<<"\nTurno de "<<"\033[0;34m"<<computer<<"\033[0m"<<": ";
+		}
+		
+		cin>>move;
+		
+	} while ( move < 1 || move > 7 || board[move - 1][0] == 'X' || board[move - 1][0] == 'O' );
+						
 }
 
 void heading_game() {
