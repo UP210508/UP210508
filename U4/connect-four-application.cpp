@@ -415,26 +415,32 @@ void show_result() {
 
 int computer_move() {
 
-  for (int i = 0; i < 7; i++) {
-    if ( board[0][i] != 'X' && board[0][i] != 'O' ) {
-
-      for (int j = 6; j >= 3; j--) {
-
-        if (board[j][i] == 'X' || board[j][i] == 'O' ) {
-          if (
-            board[j][i] == 'X' &&
-            board[j-1][i] == 'X' &&
-            board[j-2][i] == 'X' &&
-            board[j-3][i] != 'O'
-          ) {
-            return i + 1;
-          }
-        } else {
-          break;
-        }
-      }
-    }
-  }
+    for (int i = 0; i < 7; i++) {
+	    if ( board[0][i] != 'X' && board[0][i] != 'O' ) {
+	
+	      for (int j = 6; j >= 3; j--) {
+	
+	        if (board[j][i] == 'X' || board[j][i] == 'O' ) {
+	          if (
+	            board[j][i] == 'X' &&
+	            board[j-1][i] == 'X' &&
+	            board[j-2][i] == 'X' &&
+	            board[j-3][i] != 'O'
+	          ) {
+	            return i + 1;
+	          }
+	        } else {
+	          break;
+	        }
+	      }
+	    }
+  	}
+  	
+  	do {
+		move = rand() % (6) + 1;
+	} while( board[move][0] == 'X' || board[move][0] == 'O' );
+  
+  	return move;
 }
 
 void heading_game() {
