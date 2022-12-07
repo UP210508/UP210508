@@ -11,6 +11,7 @@ void validate_move();
 void show_board();
 void apply_move();
 void determine_winner();
+void show_result();
 
 // BOARD
 char board[7][7] = {
@@ -70,6 +71,8 @@ int main () {
 		} else { // JUGADOR VS COMPUTADORA
 			cout<<"Contra la computadora";
 		}
+		
+		show_result();	
 		
 	} else {
 		system("cls");
@@ -212,7 +215,41 @@ void determine_winner() {
             break;
           }
         }
-    }
+    }	
+}
+void show_result() {
+	
+	cout<<"\n";
+	
+	for ( int i = 1; i <= 3; i++ ) {
+		if ( i == 1 || i == 3 ) {
+			for( int j = 0; j <= 48; j++ ) {
+				if ( j == 0 || j == 48 ) {
+					cout<<"x";
+				} else {
+					cout<<"-";	
+				}
+			}	
+			
+			cout<<endl;	
+		} else {
+			if ( player_winner == 0 ) {
+				system("Color 70");
+				cout<<"\n|\tEMPATE"<<"\t\t|"<<endl;
+			} else if ( player_winner == 1 ) {
+				system("Color A0");
+				cout<<"|\tEl JUGADOR GANADOR ES: "<<player1<<"\t\t|"<<endl;	
+			} else if ( player_winner == 2 ) {
+				system("Color 50");
+				cout<<"|\tEl JUGADOR GANADOR ES: "<<player2<<"\t\t|"<<endl;	
+			} else {
+				system("Color 50");
+				cout<<"|\tEl JUGADOR GANADOR ES: "<<computer<<"\t\t|"<<endl;
+			}		
+		}
+	}
+	
+	cout<<"\n";
 
 }
 
