@@ -55,3 +55,42 @@ In addition to that, this algorithm doesn't block all the user moves due to the 
 <img src="../images/u4/intelligenceAlgo.png" alt="Download code" width="600"/>
 <br />
 <br />
+
+<a id="flowchart"></a>
+## ***FLOWCHART 📊***
+<br />
+
+### **main Function Flowchart**
+
+<img src="../images/u4/flowchart-main.png" alt="Download code" width="800"/>
+
+### **heading_game Function Flowchart**
+
+<img src="../images/u4/flowchart-heading.png" alt="Download code" width="500"/>
+
+### **validate_move Function Flowchart**
+
+<img src="../images/u4/flowchart-validate.png" alt="Download code" width="800"/>
+
+### **show_board Function Flowchart**
+
+<img src="../images/u4/flowchart-show.png" alt="Download code" width="1200"/>
+
+### **apply_move Function Flowchart**
+
+<img src="../images/u4/flowchart-apply.png" alt="Download code" width="500"/>
+
+### **computer_move Function Flowchart**
+
+<img src="../images/u4/flowchart-computermove.png" alt="Download code" width="1200"/>
+
+### **show_result Function Flowchart**
+
+PART1
+<img src="../images/u4/flowchart-show-result-1.png" alt="Download code" width="1200"/>
+
+PART2
+<img src="../images/u4/flowchart-show-result-2.png" alt="Download code" width="1200"/>
+
+### **determine_winner Function Flowchart**
+<img src="../images/u4/flowchart-winner.png" alt="Download code" width="1200"/>
