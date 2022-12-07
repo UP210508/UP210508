@@ -12,17 +12,18 @@ void show_board();
 void apply_move();
 void determine_winner();
 void show_result();
+void computer_move();
 
 // BOARD
 char board[7][7] = {
-      {'1', '2', '3', '4', '5', '6', '7'},
-      {'1', '2', '3', '4', '5', '6', '7'},
-      {'1', '2', '3', '4', '5', '6', '7'},
-      {'1', '2', '3', '4', '5', '6', '7'},
-      {'1', '2', '3', '4', '5', '6', '7'},
-      {'1', '2', '3', '4', '5', '6', '7'},
-      {'1', '2', '3', '4', '5', '6', '7'},
-	};
+    {'1', '2', '3', '4', '5', '6', '7'},
+    {'1', '2', '3', '4', '5', '6', '7'},
+    {'1', '2', '3', '4', '5', '6', '7'},
+    {'1', '2', '3', '4', '5', '6', '7'},
+    {'1', '2', '3', '4', '5', '6', '7'},
+    {'1', '2', '3', '4', '5', '6', '7'},
+    {'1', '2', '3', '4', '5', '6', '7'},
+};
 
 // VARIABLES TO PLAY
 char start;
@@ -66,7 +67,21 @@ int main () {
 			} while( !winner );
 			
 		} else { // JUGADOR VS COMPUTADORA	
-			cout<<"CONTRA COMPUTADORA";
+			cout<<"\nIngrese nombre de jugador: ";
+			cin>>player1;
+			
+			do {		
+					
+				if ( turn == 1 ) 
+					validate_move();					
+				else 
+					computer_move();
+				
+				apply_move();	
+				determine_winner();				
+				turn == 1 ? turn = 3 : turn = 1;
+						
+			} while( !winner );
 		}
 		
 		show_result();	
@@ -395,6 +410,10 @@ void show_result() {
 	}
 	
 	cout<<"\n";
+}
+
+void computer_move() {
+	cout<<"MoveComputer";
 }
 
 void heading_game() {
