@@ -9,6 +9,7 @@ using namespace std;
 void heading_game();
 void validate_move();
 void show_board();
+void apply_move();
 
 // BOARD
 char board[7][7] = {
@@ -57,7 +58,8 @@ int main () {
 					
 			do {
 				
-				validate_move();	
+				validate_move();
+				apply_move();	
 					
 			} while( !winner );
 			
@@ -150,6 +152,25 @@ void validate_move () {
 		
 	} while ( move < 1 || move > 7 || board[move - 1][0] == 'X' || board[move - 1][0] == 'O' );
 						
+}
+
+void apply_move() {
+	
+	for ( int i = 6; i >= 0; i-- ) {
+		if ( board[i][move - 1] != 'X' &&  board[i][move - 1] != 'O' ) {
+			if ( turn == 1 ){
+				board[i][move - 1] = 'X';
+			} else {
+				board[i][move - 1] = 'O';
+			}
+			
+			break;
+		} else {
+			cout<<"Ocupado";
+		}
+	}
+	
+	show_board();
 }
 
 void heading_game() {
