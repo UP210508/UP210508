@@ -216,7 +216,36 @@ void determine_winner() {
           }
         }
     }	
+    
+	// WINNER BY ROW
+    for (int j = 6; j >= 0; j--) {
+        for (int i = 0; i <= 3; i++) {
+          if (
+            board[j][i] == 'X' &&
+            board[j][i+1] == 'X' &&
+            board[j][i+2] == 'X' &&
+            board[j][i+3] == 'X'
+          ) {
+            player_winner = 1;
+            winner = true;
+            break;
+          }
+
+          if (
+           	board[j][i] == 'O' &&
+            board[j][i+1] == 'O' &&
+            board[j][i+2] == 'O' &&
+            board[j][i+3] == 'O'
+          ) {
+            player_winner = 2;
+            winner = true;
+            break;
+          }
+        }
+    }
+    
 }
+
 void show_result() {
 	
 	cout<<"\n";
@@ -250,7 +279,6 @@ void show_result() {
 	}
 	
 	cout<<"\n";
-
 }
 
 void heading_game() {
