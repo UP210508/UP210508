@@ -615,3 +615,52 @@ int computer_move() {
   	return random;
 }
 ```
+
+### **MAIN FUNCTION EXECUTION**
+
+1. The application starts in this function.
+
+2. Apply feed to generate random numbers.
+
+3. Show heading game calling the function heading_game.
+
+4. Ask the user to start the game. 
+
+5. If the Answer is "SI". Start the game. If the answer is "NO", go to step 6.
+  * 5.1 If the answer is 1, start game with two players. <br />
+
+    * 5.1.1 Ask for the name of the player 1.
+
+    * 5.1.2 Ask for the name of the player 2.
+
+    * 5.1.3 While there is no winner.
+      
+      * 5.1.3.1 The user is going to enter his/her movement and it's going to pass through the function validate_move which is going to show the board of the game and it will validate the input of the user. 
+
+      * 5.1.3.2 Once the program accepts the input, it applies the move into the board.
+
+      * 5.1.3.3 Call the function determine_winner to evaluate if there is winner at this moment in the game and add one to the variable quantity_move
+
+      * 5.1.3.4 Switch the turn of the player.   
+
+  * 5.2 If the answer is 2, start game against computer.
+
+    * 5.2.1 Ask for the name of the player 1.
+
+    * 5.2.2 While there is no winner.
+
+      * 5.2.2.1 if the turn is equal to 1. The user is going to enter his/her movement and it's going to pass through the function validate_move which is going to show the board of the game and it will validate the input of the user. 
+
+      * 5.2.2.2 if the turn is equal to 2. The computer is going to generate a movement depending the state of the board at the moment and return that value to move variable.
+
+      * 5.2.2.3 Once the program accepts the input, it applies the move into the board.
+
+      * 5.2.2.4 Call the function determine_winner to evaluate if there is winner at this moment in the game and add one to the variable quantity_move.
+
+      * 5.2.2.5 Switch the turn between the player and the computer.
+  
+    * 5.2.3 Show the result calling the function show_result
+	
+* 5.3. Show the result of the game calling the function that carries out that task.
+
+6. End of the program.
