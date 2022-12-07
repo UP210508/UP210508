@@ -12,17 +12,17 @@ void show_board();
 void apply_move();
 void determine_winner();
 void show_result();
-void computer_move();
+int computer_move();
 
 // BOARD
 char board[7][7] = {
     {'1', '2', '3', '4', '5', '6', '7'},
-    {'1', '2', '3', '4', '5', '6', '7'},
-    {'1', '2', '3', '4', '5', '6', '7'},
-    {'1', '2', '3', '4', '5', '6', '7'},
-    {'1', '2', '3', '4', '5', '6', '7'},
-    {'1', '2', '3', '4', '5', '6', '7'},
-    {'1', '2', '3', '4', '5', '6', '7'},
+    {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+    {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+    {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+    {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+    {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+    {' ', ' ', ' ', ' ', ' ', ' ', ' '},
 };
 
 // VARIABLES TO PLAY
@@ -75,7 +75,7 @@ int main () {
 				if ( turn == 1 ) 
 					validate_move();					
 				else 
-					computer_move();
+					move = computer_move();
 				
 				apply_move();	
 				determine_winner();				
@@ -176,6 +176,7 @@ void validate_move () {
 void apply_move() {
 	
 	cout<<move<<endl;
+	system("pause");
 	
 	for ( int i = 6; i >= 0; i-- ) {
 		if ( board[i][move - 1] != 'X' &&  board[i][move - 1] != 'O' ) {
@@ -412,8 +413,28 @@ void show_result() {
 	cout<<"\n";
 }
 
-void computer_move() {
-	cout<<"MoveComputer";
+int computer_move() {
+
+  for (int i = 0; i < 7; i++) {
+    if ( board[0][i] != 'X' && board[0][i] != 'O' ) {
+
+      for (int j = 6; j >= 3; j--) {
+
+        if (board[j][i] == 'X' || board[j][i] == 'O' ) {
+          if (
+            board[j][i] == 'X' &&
+            board[j-1][i] == 'X' &&
+            board[j-2][i] == 'X' &&
+            board[j-3][i] != 'O'
+          ) {
+            return i + 1;
+          }
+        } else {
+          break;
+        }
+      }
+    }
+  }
 }
 
 void heading_game() {
