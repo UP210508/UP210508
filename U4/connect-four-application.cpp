@@ -59,17 +59,14 @@ int main () {
 			cin>>player2;
 					
 			do {
-				
 				validate_move();
 				apply_move();	
 				determine_winner();
 				turn == 1 ? turn = 2 : turn = 1;
-					
 			} while( !winner );
 			
-			
-		} else { // JUGADOR VS COMPUTADORA
-			cout<<"Contra la computadora";
+		} else { // JUGADOR VS COMPUTADORA	
+			cout<<"CONTRA COMPUTADORA";
 		}
 		
 		show_result();	
@@ -256,30 +253,29 @@ void determine_winner() {
 
           int x = 4 - (z - i);
 
-          if ( k < 11 ) {
-
-            if ( 
-              board[i][x] == 'X' &&
-              board[i + 1][x + 1] == 'X' &&
-              board[i + 2][x + 2] == 'X' &&
-              board[i + 3][x + 3] == 'X' 
-            ) {
-            	player_winner = 1;
-	          	winner = true;
-	            break;
-            }
-
-            if ( 
-              board[i][x] == 'O' &&
-              board[i + 1][x + 1] == 'O' &&
-              board[i + 2][x + 2] == 'O' &&
-              board[i + 3][x + 3] == 'O' 
-            ) {
-              	player_winner = 2;
-	          	winner = true;
-	            break;
-            }
-
+	          if ( k < 11 ) {
+	
+	            if ( 
+	              board[i][x] == 'X' &&
+	              board[i + 1][x + 1] == 'X' &&
+	              board[i + 2][x + 2] == 'X' &&
+	              board[i + 3][x + 3] == 'X' 
+	            ) {
+	            	player_winner = 1;
+		          	winner = true;
+		            break;
+	            }
+	
+	            if ( 
+	              board[i][x] == 'O' &&
+	              board[i + 1][x + 1] == 'O' &&
+	              board[i + 2][x + 2] == 'O' &&
+	              board[i + 3][x + 3] == 'O' 
+	            ) {
+	              	player_winner = 2;
+		          	winner = true;
+		            break;
+	            }
 	    	} else {
 		            if ( 
 		              board[x][i] == 'X' &&
@@ -304,8 +300,67 @@ void determine_winner() {
 		            }
 	     	}
 		}
-	}
-}
+		
+		 // WINNER BY DIAGONAL RIGHT-LEFT
+        for( int i = 0; i < z; i++ ) {
+
+          int x;
+
+          if ( k < 11 ) {
+            x = (z - i) + 2;
+
+            if ( 
+              board[x][i] == 'X' &&
+              board[x - 1][i + 1] == 'X' &&
+              board[x - 2][i + 2] == 'X' &&
+              board[x - 3][i + 3] == 'X' 
+            ) {
+            	player_winner = 1;
+			    winner = true;
+				break;
+            }
+
+            if ( 
+              board[x][i] == 'O' &&
+              board[x - 1][i + 1] == 'O' &&
+              board[x - 2][i + 2] == 'O' &&
+              board[x - 3][i + 3] == 'O' 
+            ) {
+            	player_winner = 2;
+			    winner = true;
+				break;
+            }
+ 
+          } else {
+            x = 6 - i;
+            int y = 4 - (z - i);
+
+            if ( 
+              board[x][y] == 'X' &&
+              board[x - 1][y + 1] == 'X' &&
+              board[x - 2][y + 2] == 'X' &&
+              board[x - 3][y + 3] == 'X' 
+            ) {
+        		player_winner = 1;
+			    winner = true;
+				break;
+            }
+
+            if ( 
+              board[x][y] == 'O' &&
+              board[x - 1][y + 1] == 'O' &&
+              board[x - 2][y + 2] == 'O' &&
+              board[x - 3][y + 3] == 'O' 
+            ) {
+            	player_winner = 2;
+			    winner = true;
+				break;
+            }
+          }
+        }
+		
+	} // for diagonals
+} // function
 
 void show_result() {
 	
