@@ -9,6 +9,8 @@ using namespace std;
 void heading_game();
 void validate_move();
 void show_board();
+void apply_move();
+void determine_winner();
 
 // BOARD
 char board[7][7] = {
@@ -29,8 +31,8 @@ int type_of_game;
 int turn = 1;
 char computer[] = "COMPUTADORA";
 int move = 0;
-
-bool winner = true;
+int player_winner = 0;
+bool winner = false;
 
 int main () {
 	
@@ -57,9 +59,13 @@ int main () {
 					
 			do {
 				
-				validate_move();	
+				validate_move();
+				apply_move();	
+				determine_winner();
+				turn == 1 ? turn = 2 : turn = 1;
 					
 			} while( !winner );
+			
 			
 		} else { // JUGADOR VS COMPUTADORA
 			cout<<"Contra la computadora";
@@ -148,8 +154,66 @@ void validate_move () {
 		
 		cin>>move;
 		
-	} while ( move < 1 || move > 7 || board[move - 1][0] == 'X' || board[move - 1][0] == 'O' );
+	} while ( move < 1 || move > 7 || board[0][move - 1] == 'X' || board[0][move - 1] == 'O' );
 						
+}
+
+void apply_move() {
+	
+	cout<<move<<endl;
+	
+	for ( int i = 6; i >= 0; i-- ) {
+		if ( board[i][move - 1] != 'X' &&  board[i][move - 1] != 'O' ) {
+			if ( turn == 1 ){
+				board[i][move - 1] = 'X';
+			} else {
+				board[i][move - 1] = 'O';
+			}
+			
+			break;
+		}
+	}
+	
+	show_board();
+}
+
+void determine_winner() {
+	
+	// WINNER BY COLUMN
+	for (int i = 0; i < 7; i++) {
+        for (int j = 6; j >= 3; j--) {
+
+          if (
+            board[j][i] == 'X' ||
+            board[j][i] == 'O'
+          ) {
+            if (
+              board[j][i] == 'X' &&
+              board[j-1][i] == 'X' &&
+              board[j-2][i] == 'X' &&
+              board[j-3][i] == 'X'
+            ) {
+              player_winner = 1;
+              winner = true;
+              break;
+            }
+
+            if (
+              board[j][i] == 'O' &&
+              board[j-1][i] == 'O' &&
+              board[j-2][i] == 'O' &&
+              board[j-3][i] == 'O'
+            ) {
+              player_winner = 2;
+              winner = true;
+              break;
+            }
+          } else {
+            break;
+          }
+        }
+    }
+
 }
 
 void heading_game() {
