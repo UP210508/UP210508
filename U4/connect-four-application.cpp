@@ -244,6 +244,67 @@ void determine_winner() {
         }
     }
     
+	// WINNER BY DIAGONALS
+    for (int k = 7; k <= 13; k++) {
+        
+        int z = k - 6;
+        
+        if (k >= 10) z = 14 - k;
+
+        // WINNER BY DIAGONAL LEFT-RIGHT
+    	for (int i = 0; i < z; i++) {
+
+          int x = 4 - (z - i);
+
+          if ( k < 11 ) {
+
+            if ( 
+              board[i][x] == 'X' &&
+              board[i + 1][x + 1] == 'X' &&
+              board[i + 2][x + 2] == 'X' &&
+              board[i + 3][x + 3] == 'X' 
+            ) {
+            	player_winner = 1;
+	          	winner = true;
+	            break;
+            }
+
+            if ( 
+              board[i][x] == 'O' &&
+              board[i + 1][x + 1] == 'O' &&
+              board[i + 2][x + 2] == 'O' &&
+              board[i + 3][x + 3] == 'O' 
+            ) {
+              	player_winner = 2;
+	          	winner = true;
+	            break;
+            }
+
+	    	} else {
+		            if ( 
+		              board[x][i] == 'X' &&
+		              board[x + 1][i + 1] == 'X' &&
+		              board[x + 2][i + 2] == 'X' &&
+		              board[x + 3][i + 3] == 'X' 
+		            ) {
+		              	player_winner = 1;
+			          	winner = true;
+			            break;
+		            }
+	
+		            if ( 
+		              board[x][i] == 'O' &&
+		              board[x + 1][i + 1] == 'O' &&
+		              board[x + 2][i + 2] == 'O' &&
+		              board[x + 3][i + 3] == 'O' 
+		            ) {
+		              	player_winner = 2;
+			          	winner = true;
+			            break;
+		            }
+	     	}
+		}
+	}
 }
 
 void show_result() {
