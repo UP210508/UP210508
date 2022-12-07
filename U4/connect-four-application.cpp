@@ -176,6 +176,7 @@ void validate_move () {
 void apply_move() {
 	
 	cout<<move<<endl;
+	cout<< board[0][move - 1]<<endl;
 	system("pause");
 	
 	for ( int i = 6; i >= 0; i-- ) {
@@ -436,11 +437,27 @@ int computer_move() {
 	    }
   	}
   	
+  	for (int j = 0; j <= 6; j++) {
+	    if ( board[0][j] != 'X' && board[0][j] != 'O' ) {
+	      for (int i = 6; i >= 3; i--) {
+	        if (
+	          board[i][j] == 'X' &&
+	          board[i][j+1] == 'X' &&
+	          board[i][j+2] == 'X'
+	        ) {
+	          return j + 4;
+	        }
+	      }
+	    }
+  	}
+  	
+  	int random;
+  	
   	do {
-		move = rand() % (6) + 1;
-	} while( board[move][0] == 'X' || board[move][0] == 'O' );
+		random = 1 + rand() % (6);
+	} while( board[0][random - 1] == 'X' || board[0][random - 1] == 'O' );
   
-  	return move;
+  	return random;
 }
 
 void heading_game() {
