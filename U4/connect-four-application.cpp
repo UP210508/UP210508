@@ -34,6 +34,7 @@ int turn = 1;
 char computer[] = "COMPUTADORA";
 int move = 0;
 int player_winner = 0;
+int quantity_moves = 0;
 bool winner = false;
 
 int main () {
@@ -63,6 +64,10 @@ int main () {
 				validate_move();
 				apply_move();	
 				determine_winner();
+				quantity_moves++;
+				
+				if ( quantity_moves == 49 ) break;
+				
 				turn == 1 ? turn = 2 : turn = 1;
 			} while( !winner );
 			
@@ -78,7 +83,12 @@ int main () {
 					move = computer_move();
 				
 				apply_move();	
-				determine_winner();				
+				determine_winner();			
+				
+				quantity_moves++;
+				
+				if ( quantity_moves == 49 ) break;
+					
 				turn == 1 ? turn = 3 : turn = 1;
 						
 			} while( !winner );
@@ -94,7 +104,6 @@ int main () {
 		
 	return 0;
 }
-
 
 void show_board() {
 	system("cls");
@@ -174,10 +183,6 @@ void validate_move () {
 }
 
 void apply_move() {
-	
-	cout<<move<<endl;
-	cout<< board[0][move - 1]<<endl;
-	system("pause");
 	
 	for ( int i = 6; i >= 0; i-- ) {
 		if ( board[i][move - 1] != 'X' &&  board[i][move - 1] != 'O' ) {
