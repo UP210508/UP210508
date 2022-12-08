@@ -664,3 +664,47 @@ int computer_move() {
 * 5.3. Show the result of the game calling the function that carries out that task.
 
 6. End of the program.
+<br />
+<br />
+
+<a id="evidences"></a>
+## ***EVIDENCES 📷***
+<br />
+
+1. START THE GAME ( THE USER WANTS TO PLAY )
+<br />
+<img src="../images/u4/game-1.png" alt="Download code" width="500"/>
+
+2. START THE GAME ( THE USER DOES NOT WANT TO PLAY )
+<br />
+<img src="../images/u4/game-2.png" alt="Download code" width="500"/>
+
+3. GAME MODE 1: PLAYER1 VS PLAYER 2 🤵
+<br />
+<img src="../images/u4/game-3.png" alt="Download code" width="500"/>
+
+4. PLAYING PLAYER 1 VS PLAYER 2🤵
+<br />
+<img src="../images/u4/game-4.png" alt="Download code" width="500"/>
+
+5. PLAYER 1 WINS 🟢
+<br />
+<img src="../images/u4/game-5.png" alt="Download code" width="500"/>
+
+6. PLAYER 2 WINS 🔴
+<br />
+<img src="../images/u4/game-6.png" alt="Download code" width="500"/>
+
+7. DRAW ✖
+<br />
+<img src="../images/u4/game-7.png" alt="Download code" width="500"/>
+
+8. PLAYING WITH COMPUTER 🖥💻
+<img src="../images/u4/game-9.png" alt="Download code" width="500"/>
+<br />
+
+9. COMPUTER WINS 🖥💻
+<br />
+<img src="../images/u4/game-8.png" alt="Download code" width="500"/>
+<br />
+<br />
