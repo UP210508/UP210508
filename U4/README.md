@@ -708,3 +708,15 @@ int computer_move() {
 <img src="../images/u4/game-8.png" alt="Download code" width="500"/>
 <br />
 <br />
+
+<a id="conclusions"></a> 
+## ***CONCLUSIONS ☝***
+<br />
+
+* The program is not intended to emulate a neural network to apply artificial intelligence principles. It is only the result of applying principles of structured programming in functions that perform different tasks in the program. 
+
+* It is concluded that code reutlization is vital to make code more maintainable and scalable. Although issues such as software architecture have not been addressed, it is intended to modulate this program in the future, so we cannot evaluate its performance under these parameters. 
+
+* The fact of having variables with global scope makes it easier for each function to perform its task without so many internal variable changes, so for this type of programs it is appropriate to make them accessible for the vast majority of them. 
+
+* The particular theme of the algorithm for the computer to play with the user is a question of improving and implementing the "medium" and "difficult" game modes, however, to this extent the program fulfills its purpose. 
